@@ -7,7 +7,6 @@ var readline = require('readline');
 var MongoClient = require('mongodb').MongoClient;
 var request = require("request")
 var mkdirp = require('mkdirp');
-var MongoClient = require('mongodb').MongoClient;
 var app = express();
 var options = {
     host: '127.0.0.1',
@@ -33,7 +32,7 @@ app.get('/populateMongoWithScriptures', function (req, res) {
             if(err) {
                 throw err;
             }
-            
+
             var books = JSON.parse(data).books;
             addJSONToMongo(JSON.parse(data));
             books.forEach(function(book) {
