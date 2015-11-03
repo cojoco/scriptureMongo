@@ -7,16 +7,16 @@ var ROOT_DIR = "html/";
 
 http.createServer(function (req, res) {
  var urlObj = url.parse(req.url, true, false);
- // If this is our comments REST service
- if(urlObj.pathname.indexOf("comment") !=-1) {
+ // If this is our todos REST service
+ if(urlObj.pathname.indexOf("todo") !=-1) {
   if(req.method === "GET") {
    var userQuery = url.parse(req.url, true).query;
    console.log(userQuery);
-   MongoClient.connect("mongodb://localhost/weather", function(err, db) {
+   MongoClient.connect("mongodb://localhost/todos", function(err, db) {
     if (err) throw err;
-    db.collection("comments", function(err, comments) {
+    db.collection("todos", function(err, todos) {
      if (err) throw err;
-     comments.find(userQuery,function(err, items) {
+     todos.find(userQuery,function(err, items) {
       items.toArray(function(err, itemArr) {
        res.writeHead(200);
        res.end(JSON.stringify(itemArr));
@@ -32,9 +32,9 @@ http.createServer(function (req, res) {
    });
    req.on('end', function () {
     var reqObj = JSON.parse(jsonData);
-    MongoClient.connect("mongodb://localhost/weather", function(err, db) {
+    MongoClient.connect("mongodb://localhost/todos", function(err, db) {
      if (err) throw err;
-     db.collection('comments').insert(reqObj,function(err, records) {
+     db.collection('todos').insert(reqObj,function(err, records) {
       res.writeHead(200);
       res.end("");
      });

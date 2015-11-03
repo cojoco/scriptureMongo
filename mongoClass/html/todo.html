@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="angular.min.js"></script>
+    <script src="todos.controller.js"></script>
+<!--    <script src="todosForm.js"></script>-->
+</head>
+<body ng-app="myApp"  ng-controller="TodosController">
+    <h1>Add a Todo</h1>
+    <h2>Go Ahead! Try!</h2>
+    <form id="todoForm" action="">
+      Name: <input type="text" id="Name" value="Mickey"><br>
+      todo: <input type="text" id="Todo" value="Hello"><br>
+    </form>
+    <button ng-click="postTodo()">Make a Todo</button>
+    <button ng-click="getUsersTodo()">Make a Todo</button>
+
+    <div id="json"></div>
+    <h3>Current todos:</h3>
+    <div id="currentTodosAngular">
+        <ul>
+            <li ng-repeat="todo in todos"><strong>Name:</strong> {{todo.name}}, <strong>Todo:</strong> {{todo.todo}}</li>
+        </ul>
+    </div>
+</body>
+</html>

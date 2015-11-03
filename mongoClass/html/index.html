@@ -6,40 +6,40 @@
   $(document).ready(function(){
    $("#submit").click(function(){
     var myobj = {
-     Name:$("#Name").val(),Comment:$("#Comment").val()
+     Name:$("#Name").val(),Todo:$("#Todo").val()
     };
     jobj = JSON.stringify(myobj);
     $("#json").text(jobj);
-    var url = "comment";
+    var url = "todo";
     $.post(url,jobj,function(data,textStatus) {
-     $("#done").append(textStatus);
+     $("#done").html(textStatus);
     });
    });
    $("#show").click(function(){
-    var url = "comment?Name=" + $("#Name").val();
+    var url = "todo?Name=" + $("#Name").val();
     $.getJSON(url, function(data) {
      var everything;
      everything = "<ul>";
      $.each(data, function(i, item) {
-      everything += "<li> Name: " + data[i].Name+" Comment: "+data[i].Comment;
+      everything += "<li> Name: " + data[i].Name+" Todo: "+data[i].Todo;
      });
      everything += "</ul>";
-     $("#commentList").html(everything);
+     $("#todoList").html(everything);
     });
    });
   });
  </script>
 </head>
 <body>
- <form id="commentForm" action="">
+ <form id="todoForm" action="">
   Name: <input type="text" id="Name" value="Mickey"><br>
-  Comment: <input type="text" id="Comment" value="Hello"><br>
+  Todo: <input type="text" id="Todo" value="Hello"><br>
  </form>
-  <button id="submit">Submit Comment</button>
-  <button id="show">Show Comments From User</button>
+  <button id="submit">Submit Todo</button>
+  <button id="show">Show Todos From User</button>
   <div id="json"></div>
   <div id="done"></div>
-  <p>Current Comments:</p>
-  <div id="commentList"></div>
+  <p>Current Todos:</p>
+  <div id="todoList"></div>
 </body>
 </html>
