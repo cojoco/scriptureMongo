@@ -14,7 +14,7 @@ var options = {
     cert: fs.readFileSync('ssl/server.crt')
 };
 
-http.createServer(app).listen(5000);
+http.createServer(app).listen(3000);
 https.createServer(options, app).listen(5001);
 
 app.get('/populateMongoWithScriptures', function (req, res) {
