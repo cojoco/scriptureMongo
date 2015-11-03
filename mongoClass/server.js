@@ -8,7 +8,7 @@ var ROOT_DIR = "html/";
 http.createServer(function (req, res) {
  var urlObj = url.parse(req.url, true, false);
  // If this is our todos REST service
- if(urlObj.pathname.indexOf("todo") !=-1) {
+ if(urlObj.pathname.indexOf("todo") !=-1 && urlObj.pathname.indexOf("todo.html") ==-1) {
   if(req.method === "GET") {
    var userQuery = url.parse(req.url, true).query;
    console.log(userQuery);
