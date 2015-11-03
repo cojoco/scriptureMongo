@@ -23,7 +23,7 @@ myApp.controller('TodosController', ['$scope', '$http', function($scope, $http) 
     };
     
     $scope.getUsersTodo = function() {
-        var url = "todo?Name=" + $("#Name").val();
+        var url = "http://localhost:3000/todo?Name=" + $("#Name").val();
         $http.get(url).success(function(data) {
             $scope.todos = [];
             data.forEach(function(item) {

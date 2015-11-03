@@ -2,8 +2,8 @@
 <html>
 <head>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="angular.min.js"></script>
-    <script src="todo.controller.js"></script>
+    <script src="html/angular.min.js"></script>
+    <script src="html/todo.controller.js"></script>
 </head>
 <body ng-app="myApp"  ng-controller="TodosController">
     <h1>Add a Todo</h1>
@@ -13,13 +13,13 @@
       todo: <input type="text" id="Todo" value="Hello"><br>
     </form>
     <button ng-click="postTodo()">Make a Todo</button>
-    <button ng-click="getUsersTodo()">Show Todos for this user</button>
+    <button ng-click="getUsersTodo()">Get Todo Items for User</button>
 
     <div id="json"></div>
     <h3>Current todos:</h3>
     <div id="currentTodosAngular">
         <ul>
-            <li ng-repeat="todo in todos"><strong>Name:</strong> {{todo.name}}, <strong>Todo:</strong> {{todo.todo}}</li>
+            <li ng-repeat="todo in todos"><strong>Name:</strong> {{todo.name}}, <strong>Todo:</strong> {{todo.Todo}}</li>
         </ul>
     </div>
 </body>
