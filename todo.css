@@ -1,0 +1,11 @@
+.center {
+    margin: auto;
+}
+
+.text-left {
+    text-align: left !important;
+}
+
+ul li {
+    list-style: none;
+}
