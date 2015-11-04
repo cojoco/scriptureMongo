@@ -33,7 +33,7 @@ myApp.controller('TodosController', ['$scope', '$http', function($scope, $http) 
     $scope.postTodo = function() {
         var myobj = {"Name" : $("#Name").val(), "Todo" : $("#Todo").val()};
         var jobj = JSON.stringify(myobj);
-        $http.post("http://ec2-52-88-191-100.us-west-2.compute.amazonaws.com:3005/todo", jobj, {headers: { 'Content-Type' : "application/x-www-form-urlencoded"}})
+        $http.post("http://ec2-54-148-248-229.us-west-2.compute.amazonaws.com:3000/todo", jobj, {headers: { 'Content-Type' : "application/x-www-form-urlencoded"}})
         .then(function(data) {
           $scope.getUsersTodo();
         }, function(data, status) {
@@ -44,7 +44,7 @@ myApp.controller('TodosController', ['$scope', '$http', function($scope, $http) 
     
     $scope.getUsersTodo = function() {
         $scope.userNameText = $("#Name").val() + "'s Todo Items";
-        var url = "http://ec2-52-88-191-100.us-west-2.compute.amazonaws.com:3005/todo?Name=" + $("#Name").val();
+        var url = "http://ec2-54-148-248-229.us-west-2.compute.amazonaws.com:3000/todo?Name=" + $("#Name").val();
         $scope.removeAll();
         $http.get(url).success(function(data) {
             data.forEach(function(item) {
