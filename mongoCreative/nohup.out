@@ -1,2 +1,0 @@
-[Error: /opt/bitnami/nodejs/lib/node_modules/mongodb/node_modules/bson/build/Release/bson.node: invalid ELF header]
-js-bson: Failed to load c++ bson extension, using pure JS version
